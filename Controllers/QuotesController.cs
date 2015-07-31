@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Framework.Runtime;
 using FileHelpers;
+using Swashbuckle.Swagger.Annotations;
+
 
 namespace famousquotes.Controllers
 {
@@ -45,6 +47,7 @@ namespace famousquotes.Controllers
         }
 
         // GET: api/quotes
+        [SwaggerOperation("GetQuote")]
         [HttpGet]
         public IEnumerable<Quote> Get()
         {
@@ -54,6 +57,7 @@ namespace famousquotes.Controllers
         }
 
         // GET api/quotes/5
+        [SwaggerOperation("GetQuoteById")]
         [HttpGet("{id}")]
         public Quote Get(int id)
         {
@@ -62,6 +66,7 @@ namespace famousquotes.Controllers
         }
         
         // GET api/quotes/random
+        [SwaggerOperation("GetRandomQuote")]        
         [HttpGet("random")]
         public Quote GetRandomQuote()
         {
